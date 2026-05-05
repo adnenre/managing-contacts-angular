@@ -1,18 +1,60 @@
-# ManagingContactsAngular
+# 📇 Managing Contacts - Angular
 
-## Login Screen
+A modern contact management web application built with **Angular 21**.  
+Users can register, log in, and manage their personal contacts through a clean, responsive interface.
+
+![GitHub Pages](https://img.shields.io/badge/deployment-live-brightgreen)
+![Angular](https://img.shields.io/badge/Angular-21-red)
+![License](https://img.shields.io/badge/license-MIT-blue)
+[Managing Contacts Angular](https://adnenre.github.io/managing-contacts-angular/)
+
+---
+
+## 🚀 Live Demo
+
+👉 [**https://adnenre.github.io/managing-contacts-angular/**](https://adnenre.github.io/managing-contacts-angular/)
+
+---
+
+## ✨ Features
+
+- [x] 🔐 **Authentication** – Register and login securely (demo users stored in localStorage)
+- [x] 🎨 **Responsive UI** – Works on desktop, tablet, and mobile
+- [x] ⚡ **Fast & modern** – Built with Angular standalone components & reactive forms
+- [x] 📁 **Persistent storage** – Currently uses `localStorage` for demo/prototype (future: replace with a real backend)
+- [x] 🧩 **Custom UI components** – No external UI library (Material, Bootstrap, etc.); all components (buttons, modals, inputs, tables) built from scratch
+- [ ] 📞 **Contact Management** – Add, edit, delete, and list contacts
+
+---
+
+## 🖼️ Screenshots
+
+### Login Screen
 
 ![Login](login.png)
 
-## Register Screen
+### Register Screen
 
 ![Register](register.png)
 
-## Contacts Screen
+### Contacts Screen
 
 ![Contacts](contacts.png)
 
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://adnenre.github.io/managing-contacts-angular/)
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.5.
+
+## 🛠️ Tech Stack
+
+| Technology            | Purpose                    |
+| --------------------- | -------------------------- |
+| Angular 21            | Frontend framework         |
+| TypeScript            | Type-safe development      |
+| Reactive Forms        | Form handling & validation |
+| Angular Router        | Navigation & guards        |
+| GitHub Pages          | Hosting & deployment       |
+| `angular-cli-ghpages` | Deployment utility         |
 
 ## Development server
 
