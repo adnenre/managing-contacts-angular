@@ -1,5 +1,17 @@
 # ManagingContactsAngular
 
+## Login Screen
+
+![Login](login.png)
+
+## Register Screen
+
+![Register](register.png)
+
+## Contacts Screen
+
+![Contacts](contacts.png)
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.5.
 
 ## Development server
