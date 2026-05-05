@@ -16,8 +16,8 @@ export class Login {
   private auth = inject(AuthService);
   private router = inject(Router);
 
-  email = signal('');
-  password = signal('');
+  email = signal('user@example.com');
+  password = signal('123456');
   emailError = signal('');
   passwordError = signal('');
   loginError = signal('');
