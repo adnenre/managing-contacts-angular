@@ -1,0 +1,11 @@
+<div class="dropdown">
+  <app-button variant="icon" (click)="toggle()" [class]="open() ? 'active' : ''">
+    <app-icon name="user-circle"></app-icon>
+  </app-button>
+
+  @if (open()) {
+    <div class="dropdown__menu">
+      <ng-content></ng-content>
+    </div>
+  }
+</div>

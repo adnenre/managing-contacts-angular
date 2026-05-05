@@ -1,0 +1,14 @@
+<ul class="sidebar-nav__list">
+  @for (item of items; track item.route) {
+    <li class="sidebar-nav__item">
+      <a
+        [routerLink]="item.route"
+        routerLinkActive="active-tab"
+        class="sidebar-nav__link"
+        [attr.data-tooltip]="item.tooltip"
+      >
+        <app-icon [name]="item.icon"></app-icon>
+      </a>
+    </li>
+  }
+</ul>

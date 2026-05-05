@@ -1,0 +1,91 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  left: auto;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  min-width: 130px;
+  z-index: 1000;
+  overflow: visible;
+  border: solid 1px rgba(255, 255, 255, 0.25);
+}
+
+/* Style for menu items (projected content) */
+::ng-deep .dropdown__menu > * {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: white !important;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Gradient overlay for menu items */
+::ng-deep .dropdown__menu > *::before {
+  content: '';
+  display: block;
+  width: 0;
+  background: linear-gradient(45deg, #5186ac, var(--primaryColor, #673ab7));
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Hover effect for menu items */
+::ng-deep .dropdown__menu > *:hover {
+  box-shadow:
+    0px 10px 2px -10px #673ab769,
+    0px 24px 2px -16px #673ab73d,
+    0px 24px 2px -20px #3f51b54f;
+  background: none;
+}
+::ng-deep .dropdown__menu > *:hover::before {
+  width: 100%;
+}
+
+/* Rounded corners for first/last menu items */
+::ng-deep .dropdown__menu > *:first-child {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+::ng-deep .dropdown__menu > *:last-child {
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+/* 🟢 Active state for the dropdown button (menu is open) */
+.btn.active,
+.btn--icon.active {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.2)
+  ) !important;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(0, 0, 0, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.2) inset !important;
+  transform: translateY(1px) !important;
+}

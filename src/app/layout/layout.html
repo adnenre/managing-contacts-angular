@@ -1,0 +1,48 @@
+<div class="layout">
+  <div class="layout__container">
+    <aside class="sidebar">
+      <!-- User dropdown using shared component -->
+
+      <app-sidebar-nav [items]="navItems"></app-sidebar-nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar__content">
+          <div class="topbar__left">
+            @if (isContactListRoute()) {
+              <div class="topbar__controls">
+                <app-input
+                  type="text"
+                  placeholder="Search for a contact..."
+                  leftIcon="search"
+                  name="search"
+                  [ngModel]="searchText()"
+                  (ngModelChange)="onSearchChange($event)"
+                ></app-input>
+                <app-button variant="icon" (click)="toggleView()">
+                  @if (currentView() === 'contact_galery') {
+                    <app-icon name="list"></app-icon>
+                  } @else {
+                    <app-icon name="th-large"></app-icon>
+                  }
+                </app-button>
+              </div>
+            } @else {
+              <a routerLink="/contacts" class="topbar__back-link">← Back to list</a>
+            }
+          </div>
+          <div class="topbar__right">
+            <app-dropdown (itemClick)="logout()">
+              <button class="dropdown-menu__item" (click)="logout()">Logout</button>
+            </app-dropdown>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="register-wrapper">
+  <div class="register-card">
+    <h2 class="register-card__title">Create Account</h2>
+    <form (ngSubmit)="onSubmit()" class="register-form">
+      <!-- Email input -->
+      <app-input
+        type="email"
+        placeholder="Email address"
+        leftIcon="envelope"
+        [ngModel]="email()"
+        (ngModelChange)="email.set($event); validateForm()"
+        name="email"
+        [errorMessage]="emailError()"
+      ></app-input>
+
+      <!-- Password input -->
+      <app-input
+        type="password"
+        placeholder="Password (min. 6 chars)"
+        leftIcon="lock"
+        [ngModel]="password()"
+        (ngModelChange)="password.set($event); validateForm()"
+        name="password"
+        [errorMessage]="passwordError()"
+      ></app-input>
+
+      <!-- Confirm Password input -->
+      <app-input
+        type="password"
+        placeholder="Confirm password"
+        leftIcon="lock"
+        [ngModel]="confirmPassword()"
+        (ngModelChange)="confirmPassword.set($event); validateForm()"
+        name="confirmPassword"
+        [errorMessage]="confirmPasswordError()"
+      ></app-input>
+
+      <!-- Submit button -->
+      <app-button type="submit" variant="primary" [disabled]="!isFormValid()" class="mt-2">
+        Sign Up
+      </app-button>
+
+      @if (registerError()) {
+        <div class="error-message">{{ registerError() }}</div>
+      }
+
+      <p class="register-card__login">Already have an account? <a routerLink="/login">Login</a></p>
+    </form>
+  </div>
+</div>

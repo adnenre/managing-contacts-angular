@@ -1,0 +1,243 @@
+/* Block: layout */
+.layout {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(166deg, #5186ac 25%, #5686ac 47%, #7a79a9 64%, #686399, #4e5687)
+    no-repeat center center fixed;
+}
+
+.layout__container {
+  width: 98%;
+  margin: auto;
+  min-height: 98%;
+  border-radius: 20px;
+  background: url('/assets/images/bg.png');
+  height: 98%;
+  margin-top: 15px;
+  box-shadow: 0px 0px 8px 0px #ddd;
+  overflow: hidden;
+  display: flex;
+}
+
+/* Sidebar block */
+.sidebar {
+  width: 100px;
+  padding: 1rem;
+  border-right: solid 1px #ffffff45;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar__dropdown {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.sidebar__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border: solid 1px rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.dropdown-menu__item {
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  color: #333;
+}
+.dropdown-menu__item:hover {
+  background: #f0f0f0;
+}
+
+.sidebar__nav-list {
+  list-style: none;
+}
+
+.sidebar__nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar__nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 2rem;
+  margin: 1rem;
+  width: 50px;
+  height: 50px;
+  border: solid 1px rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+}
+.sidebar__nav-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Main area block */
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Topbar block */
+.topbar {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  box-sizing: border-box;
+}
+.input-wrapper {
+  width: 100%;
+  margin-bottom: 0 !important;
+}
+.topbar__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.topbar__left,
+.topbar__right {
+  display: flex;
+  align-items: center;
+}
+
+.topbar__controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.topbar__search {
+  display: block;
+  border-radius: 1rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  border: solid 1px rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+  color: white;
+  width: 100px;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+.topbar__search:focus {
+  width: 200px;
+}
+.topbar__search::placeholder {
+  color: white;
+  font-size: 0.7rem;
+}
+
+.topbar__toggle-btn {
+  cursor: pointer;
+  color: white;
+  outline: none;
+  border-radius: 50%;
+  border: solid 1px rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
+  width: 35px;
+  height: 35px;
+  margin: 0;
+}
+
+.topbar__back-link {
+  color: white;
+  text-decoration: none;
+}
+.topbar__back-link:hover {
+  text-decoration: underline;
+}
+
+/* Main content block */
+.main-content {
+  overflow-y: scroll;
+  height: calc(100vh - 90px);
+  padding: 0 1rem;
+}
+
+/* Scrollbar styling (optional, matches original) */
+.main-content::-webkit-scrollbar {
+  width: 5px;
+  background: #ffffff14;
+}
+.main-content::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: white;
+}
+/* Ensure any element with data-tooltip becomes a positioned container */
+[data-tooltip] {
+  position: relative;
+}
+
+/* Tooltip bubble */
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 60px; /* adjusted: sidebar icons are ~50px wide, tooltip appears to the right */
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: normal;
+  white-space: nowrap;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Montserrat', sans-serif;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(4px);
+}
+/* Ensure sidebar items allow overflow */
+.sidebar__nav-item,
+.sidebar__dropdown {
+  overflow: visible !important;
+}
+
+/* Ensure tooltip appears above other elements */
+[data-tooltip]::after {
+  z-index: 9999;
+}

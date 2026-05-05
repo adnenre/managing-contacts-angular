@@ -1,0 +1,13 @@
+<button
+  [type]="type"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel"
+  [class]="
+    'btn' + (variant === 'icon' ? ' btn--icon' : ' btn--' + variant) + (class ? ' ' + class : '')
+  "
+>
+  @if (icon) {
+    <app-icon [name]="icon" class="btn__icon"></app-icon>
+  }
+  <span class="btn__content"><ng-content></ng-content></span>
+</button>

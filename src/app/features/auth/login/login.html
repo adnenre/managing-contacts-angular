@@ -1,0 +1,40 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <h2 class="login-card__title">Welcome Back</h2>
+    <form (ngSubmit)="onSubmit()" class="login-form">
+      <app-input
+        type="email"
+        placeholder="Email address"
+        leftIcon="envelope"
+        class="mb-3 border-shadow"
+        [ngModel]="email()"
+        (ngModelChange)="email.set($event); validateEmail()"
+        name="email"
+        [errorMessage]="emailError()"
+      ></app-input>
+
+      <app-input
+        type="password"
+        placeholder="Password"
+        leftIcon="lock"
+        class="mb-4"
+        [ngModel]="password()"
+        (ngModelChange)="password.set($event); validatePassword()"
+        name="password"
+        [errorMessage]="passwordError()"
+      ></app-input>
+
+      <app-button type="submit" variant="primary" [disabled]="!isFormValid()" class="mt-2">
+        Sign In
+      </app-button>
+
+      @if (loginError()) {
+        <div class="error-message">{{ loginError() }}</div>
+      }
+
+      <p class="login-card__register">
+        Don't have an account? <a routerLink="/register">Register</a>
+      </p>
+    </form>
+  </div>
+</div>

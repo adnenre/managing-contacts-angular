@@ -1,0 +1,26 @@
+<div [class]="wrapperClass">
+  <div class="input-container" [class.input-container--with-left-icon]="leftIcon">
+    @if (leftIcon) {
+      <app-icon [name]="leftIcon" class="input-icon input-icon--left"></app-icon>
+    }
+    <input
+      [type]="inputType"
+      [placeholder]="placeholder"
+      [name]="name"
+      [id]="id"
+      [disabled]="disabled"
+      [value]="value"
+      (input)="onInput($event)"
+      (blur)="onTouched()"
+      class="input-field"
+    />
+    @if (showPasswordToggle) {
+      <button type="button" class="input-icon input-icon--right" (click)="togglePassword()">
+        <app-icon [name]="showPassword() ? 'eye-slash' : 'eye'"></app-icon>
+      </button>
+    }
+  </div>
+  @if (errorMessage) {
+    <div class="input-error">{{ errorMessage }}</div>
+  }
+</div>

@@ -1,0 +1,37 @@
+@if (contactInfo) {
+  <div class="user-detail-card">
+    <div class="user-detail-card-left bg-gradient">
+      <div class="user-detail-left-header">
+        <img class="bg-header-img" [src]="contactInfo.img_header" alt="header" />
+        <img class="user-detail-img" [src]="contactInfo.img" [alt]="contactInfo.name" />
+      </div>
+      <div class="user-social">
+        <a [href]="contactInfo.social.twitter" target="_blank" class="user-social-link ui_animate"
+          ><i class="fa fa-twitter"></i
+        ></a>
+        <a [href]="contactInfo.social.linkedin" target="_blank" class="user-social-link ui_animate"
+          ><i class="fa fa-linkedin"></i
+        ></a>
+        <a [href]="contactInfo.social.codepen" target="_blank" class="user-social-link ui_animate"
+          ><i class="fa fa-codepen"></i
+        ></a>
+        <a [href]="contactInfo.social.github" target="_blank" class="user-social-link ui_animate"
+          ><i class="fa fa-github"></i
+        ></a>
+      </div>
+    </div>
+    <div class="user-detail-card-right">
+      <div class="user-detail-info">
+        <div class="user-info">
+          <div class="user-info-name"><strong>Name:</strong> {{ contactInfo.name }}</div>
+          <div class="user-info-email"><strong>Email:</strong> {{ contactInfo.email }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="not-found">
+    <p>Contact not found.</p>
+    <a routerLink="/contacts">Go back to list</a>
+  </div>
+}

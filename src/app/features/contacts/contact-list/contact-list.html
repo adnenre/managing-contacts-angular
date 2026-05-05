@@ -1,0 +1,15 @@
+<div [ngClass]="['app_body', currentView()]">
+  @for (contact of contacts | search: searchText(); track contact.id) {
+    <div class="card shadow" (click)="navigateToDetail(contact.id)" style="cursor: pointer">
+      <div class="card_container">
+        <div class="card_header">
+          <img [src]="contact.img" [alt]="contact.name" />
+          <div class="contact_info">
+            <div class="contact_name">{{ contact.name }}</div>
+            <div class="contact_email">{{ contact.email }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>
