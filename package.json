@@ -5,8 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:base": "ng build --base-href=/managing-contacts-angular/",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng deploy --base-href=/managing-contacts-angular/"
   },
   "private": true,
   "packageManager": "npm@11.6.2",
