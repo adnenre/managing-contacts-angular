@@ -20,7 +20,7 @@
     0 0 0 4px rgba(255, 255, 255, 0.1),
     0 8px 20px rgba(0, 0, 0, 0.2);
   border: solid 1px rgba(255, 255, 255, 0.25);
-  background: url('/assets/images/bg.png');
+  background: url('/assets/images/bg.webp');
 }
 
 .login-card__title {

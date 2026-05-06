@@ -31,15 +31,15 @@ Users can register, log in, and manage their personal contacts through a clean, 
 
 ### Login Screen
 
-![Login](login.png)
+![Login](login.webp)
 
 ### Register Screen
 
-![Register](register.png)
+![Register](register.webp)
 
 ### Contacts Screen
 
-![Contacts](contacts.png)
+![Contacts](contacts.webp)
 
 [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://adnenre.github.io/managing-contacts-angular/)
 
