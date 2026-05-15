@@ -133,6 +133,7 @@
 .topbar__right {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .topbar__controls {
@@ -240,4 +241,129 @@
 /* Ensure tooltip appears above other elements */
 [data-tooltip]::after {
   z-index: 9999;
+}
+
+/* Fixed toggle button – bottom right */
+.sidebar-toggle-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  border: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #4e5687;
+  z-index: 1000;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.sidebar-toggle-btn:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* When sidebar is collapsed, the container gives full width to main-area */
+.layout__container.sidebar-collapsed .main-area {
+  width: 100%;
+}
+
+/* Optional: animate sidebar disappearance */
+.sidebar {
+  transition:
+    width 0.2s ease,
+    opacity 0.2s ease;
+  overflow: hidden;
+}
+
+/* If you use *ngIf, the sidebar is removed from DOM; 
+   if you prefer keep in DOM but hide, use [class.hidden] and CSS width:0, padding:0 */
+/* ========== MOBILE RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .layout__container {
+    width: 95%;
+    margin-top: 10px;
+    border-radius: 16px;
+  }
+
+  /* Sidebar width on mobile (when shown) */
+  .sidebar {
+    width: 80px;
+    padding: 0.5rem;
+  }
+
+  .sidebar__nav-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    margin: 0.75rem;
+  }
+
+  /* Topbar adjustments */
+  .topbar {
+    padding: 0.6rem 1rem;
+  }
+
+  .topbar__left {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .topbar__controls {
+    gap: 6px;
+  }
+
+  /* Search input on mobile */
+  .topbar__search {
+    width: 120px;
+  }
+  .topbar__search:focus {
+    width: 150px;
+  }
+
+  /* Main content padding */
+  .main-content {
+    padding: 0 0.5rem;
+    height: calc(100vh - 80px);
+  }
+
+  /* Tooltip positioning: adjust for smaller sidebar */
+  [data-tooltip]::after {
+    left: 50px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+}
+
+/* Extra small devices (phones, below 480px) */
+@media (max-width: 480px) {
+  .layout__container {
+    width: 98%;
+  }
+
+  .topbar__controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topbar__search {
+    width: 100%;
+  }
+  .topbar__search:focus {
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 70px;
+  }
+
+  .sidebar__nav-link {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+    margin: 0.5rem;
+  }
 }

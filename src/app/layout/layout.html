@@ -1,15 +1,23 @@
 <div class="layout">
-  <div class="layout__container">
-    <aside class="sidebar">
-      <!-- User dropdown using shared component -->
-
-      <app-sidebar-nav [items]="navItems"></app-sidebar-nav>
-    </aside>
+  <div class="layout__container" [class.sidebar-collapsed]="sidebarCollapsed()">
+    <!-- Sidebar: shown only when NOT collapsed -->
+    @if (!sidebarCollapsed()) {
+      <aside class="sidebar">
+        <app-sidebar-nav [items]="navItems"></app-sidebar-nav>
+      </aside>
+    }
 
     <div class="main-area">
       <header class="topbar">
         <div class="topbar__content">
           <div class="topbar__left">
+            <app-button variant="icon" (click)="toggleSidebar()">
+              @if (sidebarCollapsed()) {
+                <app-icon name="chevron-right"></app-icon>
+              } @else {
+                <app-icon name="chevron-left"></app-icon>
+              }
+            </app-button>
             @if (isContactListRoute()) {
               <div class="topbar__controls">
                 <app-input
