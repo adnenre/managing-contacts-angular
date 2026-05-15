@@ -10,6 +10,7 @@ body {
 }
 
 :root {
+  --white: #ddddd;
   --primary-color: #673ab7;
   --gradient-start: #5186ac;
   --gradient-end: #673ab7;
@@ -346,13 +347,36 @@ body {
   border-radius: 25px;
   box-shadow: 0 9px 39px 2px #2c2c2c33;
   overflow: hidden;
+  flex-wrap: wrap; /* Allows wrapping on mobile */
 }
+
 .user-detail-card-right,
 .user-detail-card-left {
   width: 50%;
   display: flex;
   flex-direction: column;
   min-height: 400px;
+}
+
+/* Mobile: full width for both columns */
+@media (max-width: 768px) {
+  .user-detail-card {
+    flex-direction: column; /* Stack vertically */
+  }
+
+  .user-detail-card-right,
+  .user-detail-card-left {
+    width: 100%;
+    min-height: auto; /* Remove fixed min-height on mobile */
+  }
+}
+
+/* Optional: extra small phones */
+@media (max-width: 480px) {
+  .user-detail-card-right,
+  .user-detail-card-left {
+    min-height: auto;
+  }
 }
 .bg-gradient {
   background: linear-gradient(45deg, var(--gradient-start), var(--primary-color));
@@ -413,9 +437,10 @@ body {
 }
 .user-info {
   text-align: center;
-  color: var(--primary-color);
+  color: var(--white);
 }
 .user-info-name {
+  color: var(--white);
   font-size: var(--space-3);
   padding: var(--space-1);
 }

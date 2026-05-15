@@ -5,6 +5,12 @@
         <img class="bg-header-img" [src]="contactInfo.img_header" alt="header" />
         <img class="user-detail-img" [src]="contactInfo.img" [alt]="contactInfo.name" />
       </div>
+      <div class="user-detail-info">
+        <div class="user-info">
+          <div class="user-info-name"><strong>Name:</strong> {{ contactInfo.name }}</div>
+          <div class="user-info-email"><strong>Email:</strong> {{ contactInfo.email }}</div>
+        </div>
+      </div>
       <div class="user-social">
         <a [href]="contactInfo.social.twitter" target="_blank" class="user-social-link ui_animate"
           ><i class="fa fa-twitter"></i
@@ -20,14 +26,7 @@
         ></a>
       </div>
     </div>
-    <div class="user-detail-card-right">
-      <div class="user-detail-info">
-        <div class="user-info">
-          <div class="user-info-name"><strong>Name:</strong> {{ contactInfo.name }}</div>
-          <div class="user-info-email"><strong>Email:</strong> {{ contactInfo.email }}</div>
-        </div>
-      </div>
-    </div>
+    <div class="user-detail-card-right"></div>
   </div>
 } @else {
   <div class="not-found">
